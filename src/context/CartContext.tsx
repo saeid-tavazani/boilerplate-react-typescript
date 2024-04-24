@@ -56,7 +56,11 @@ export const CardProvider = ({ children }: CardProviderProps) => {
       }
     });
   };
-  const removeItem = (id: number) => {};
+  const removeItem = (id: number) => {
+    setCartItems((currItems) => {
+      return currItems.filter((item) => item.id !== id);
+    });
+  };
 
   return (
     <CartContext.Provider
