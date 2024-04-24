@@ -2,7 +2,7 @@ import { Container, Navbar as NavbarBS, Nav, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useCartContext } from "../context/CartContext";
 const Navbar = () => {
-  const { cartQty } = useCartContext();
+  const { cartQty, closeCart, openCart } = useCartContext();
   return (
     <NavbarBS className="text-light mb-3">
       <Container>
@@ -15,6 +15,7 @@ const Navbar = () => {
           </Nav.Link>
         </Nav>
         <Button
+          onClick={openCart}
           variant="outline-light"
           style={{
             width: "3rem",
