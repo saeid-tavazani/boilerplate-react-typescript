@@ -41,7 +41,21 @@ export const CardProvider = ({ children }: CardProviderProps) => {
       }
     });
   };
-  const decreaseItem = (id: number) => {};
+  const decreaseItem = (id: number) => {
+    setCartItems((currItems) => {
+      if (currItems.find((item) => item.id === id)?.qty == 1) {
+        return currItems.filter((item) => item.id !== id);
+      } else {
+        return currItems.map((item) => {
+          if (item.id === id) {
+            return { ...item, qty: item.qty - 1 };
+          } else {
+            return item;
+          }
+        });
+      }
+    });
+  };
   const removeItem = (id: number) => {};
 
   return (
